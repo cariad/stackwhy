@@ -34,6 +34,11 @@ fi
 
 echo "${version}" > stackwhy/version/VERSION
 
+pushd docsrc
+rm -rf build
+make
+popd
+
 rm -rf dist
 python setup.py bdist_wheel
 rm -rf build

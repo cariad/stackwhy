@@ -37,7 +37,7 @@ setup(
     author="Cariad Eccleston",
     author_email="cariad@cariad.earth",
     classifiers=classifiers,
-    description="CLI tool and package for explaining why an Amazon Web Services CloudFormation stack failed to update",
+    description="CLI tool and package for visualising the most recent events on an Amazon Web Services CloudFormation stack",
     entry_points={
         "console_scripts": [
             "stackwhy=stackwhy.__main__:cli_entry",
