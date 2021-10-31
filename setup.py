@@ -37,13 +37,18 @@ setup(
     author="Cariad Eccleston",
     author_email="cariad@cariad.earth",
     classifiers=classifiers,
-    description="CLI tool and package for explaining why an Amazon Web Services CloudFormation stack failed to update",
+    description="CLI tool and package for visualising the most recent events on an Amazon Web Services CloudFormation stack",
     entry_points={
         "console_scripts": [
             "stackwhy=stackwhy.__main__:cli_entry",
         ],
     },
     include_package_data=True,
+    install_requires=[
+        "ansiscape >=1.1,  <2.0",
+        "boto3     >=1.18, <2.0",
+        "tabulate  >=0.8,  <1.0",
+    ],
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
