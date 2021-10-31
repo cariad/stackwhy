@@ -1,0 +1,8 @@
+{
+  "cSpell.words": [
+    "epilog",
+    "stackwhy",
+    "tablefmt"
+  ],
+  "restructuredtext.confPath": "${workspaceFolder}/docsrc/source"
+}
