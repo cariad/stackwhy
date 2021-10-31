@@ -44,6 +44,11 @@ setup(
         ],
     },
     include_package_data=True,
+    install_requires=[
+        "ansiscape >=1.1,  <2.0",
+        "boto3     >=1.18, <2.0",
+        "tabulate  >=0.8,  <1.0",
+    ],
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
