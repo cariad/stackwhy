@@ -1,7 +1,6 @@
 from io import StringIO
 
 from mock import Mock
-from pytest import raises
 
 from stackwhy import Event, StackWhy
 
