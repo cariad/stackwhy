@@ -51,7 +51,7 @@ def test_render() -> None:
     assert (
         writer.getvalue()
         == """\x1b[1mLogical ID\x1b[22m          \x1b[1mPhysical ID\x1b[22m          \x1b[1mResource Type\x1b[22m    \x1b[1mStatus\x1b[22m              \x1b[1mReason\x1b[22m
-\x1b[38;5;10mLogicalResourceId2\x1b[39m                       \x1b[38;5;10mResourceType2\x1b[39m    \x1b[38;5;10mCREATE_IN_PROGRESS\x1b[39m  \x1b[38;5;10mResourceStatusReason2\x1b[39m
+\x1b[38;5;10mLogicalResourceId2\x1b[39m                       \x1b[38;5;10mResourceType2\x1b[39m    \x1b[38;5;10mCREATE IN PROGRESS\x1b[39m  \x1b[38;5;10mResourceStatusReason2\x1b[39m
 \x1b[38;5;10mLogicalResourceId1\x1b[39m  \x1b[38;5;10mPhysicalResourceId1\x1b[39m  \x1b[38;5;10mResourceType1\x1b[39m    \x1b[38;5;10mResourceStatus1\x1b[39m     \x1b[38;5;10mResourceStatusReason1\x1b[39m
 """
     )
