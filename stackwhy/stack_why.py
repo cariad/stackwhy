@@ -89,10 +89,12 @@ class StackWhy:
                 bright_red if failed else bright_yellow if rollback else bright_green
             )
 
+            styled_status = event.status.replace("_", " ")
+
             row = [
                 color(event.logical_id).encoded,
                 color(event.type).encoded,
-                color(event.status).encoded,
+                color("\n".join(wrap(styled_status, width=20))).encoded,
                 color("\n".join(wrap(event.status_reason, width=60))).encoded,
             ]
 
