@@ -106,7 +106,7 @@ class StackWhy:
             row = [
                 color(event.logical_id).encoded,
                 color(event.type).encoded,
-                self._colorize(color, styled_status, 20),
+                self._colorize(color, styled_status, 26),
                 self._colorize(color, event.status_reason, 60),
             ]
 
