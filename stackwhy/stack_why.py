@@ -1,9 +1,10 @@
 from functools import cached_property
 from sys import stdout
 from textwrap import wrap
-from typing import IO, List, Optional
+from typing import IO, Callable, List, Optional
 
 from ansiscape import bright_green, bright_red, bright_yellow, heavy
+from ansiscape.types import SequencePart, SequenceType
 from boto3.session import Session
 from tabulate import tabulate
 
@@ -60,6 +61,17 @@ class StackWhy:
                 return True
         return False
 
+    def _colorize(
+        self, color: Callable[[SequencePart], SequenceType], text: str, width: int
+    ) -> str:
+        # It's not enough to colourise the string value of a column. Remember,
+        # text could be wrapped, so the colour code would continue onto the next
+        # column.
+
+        wrapped = wrap(text, width=width)
+        wrapped = [color(line).encoded for line in wrapped]
+        return "\n".join(wrapped)
+
     def render(self, writer: Optional[IO[str]] = None) -> None:
         """
         Renders a table of events.
@@ -94,8 +106,8 @@ class StackWhy:
             row = [
                 color(event.logical_id).encoded,
                 color(event.type).encoded,
-                color("\n".join(wrap(styled_status, width=20))).encoded,
-                color("\n".join(wrap(event.status_reason, width=60))).encoded,
+                self._colorize(color, styled_status, 20),
+                self._colorize(color, event.status_reason, 60),
             ]
 
             if self.has_any_physical_id:
